@@ -623,6 +623,7 @@
 \def\dots{\relax\ifmmode\ldots\else$\m@th\ldots\,$\fi}
 \def\TeX{T\kern-.1667em\lower.5ex\hbox{E}\kern-.125emX}
 \def\eduTeX{eduT\kern-.1667em\lower.5ex\hbox{E}\kern-.125emX}
+\def\edoTeX{edoT\kern-.1667em\lower.5ex\hbox{E}\kern-.125emX}
 
 \def\`#1{{\accent18 #1}}
 \def\'#1{{\accent19 #1}}
@@ -1173,6 +1174,7 @@
 
 
 \message{output routines,} 
+\countdef\pageno=0 \pageno=1 %the first page is number 1
 \newtoks\headline \headline={\hfil} % headline is normally blank
 \newtoks\footline \footline={\hss\tenrm\folio\hss}
   % footline is normally a centered page number in font \tenrm
