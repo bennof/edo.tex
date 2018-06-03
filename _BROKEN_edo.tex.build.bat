@@ -1,8 +1,8 @@
 REM Batch build file 
 REM Copyright 2018 Benjamin Benno Falkner
 
->output.log (
-echo Building Edo.TeX at %~dp0 ...
+
+@echo Building Edo.TeX at %~dp0 ...
 setx EDOTEX      "%~dp0"
 setx TEXINPUTS   "%~dp0texmf\tex\edo"
 setx TEXFORMATS  "%~dp0texmf\tex\edo"
@@ -11,12 +11,12 @@ setx TFMFONTS    "%~dp0texmf\fonts\tfm"
 setx TEXFONTMAPS "%~dp0texmf\fonts\map"
 setx T1FONTS     "%~dp0texmf\fonts\type1"
 
-echo %~dp0bin\pdftex.exe --ini --recorder --file-line-error edo.pdf.tex
-echo ... done.
-echo 
-echo Setup ...
-echo xcopy /y %~dp0edo.pdf.fmt   %~dp0texmf\tex\edo\edo.pdf.fmt
-echo write bin\edotex.ps1
+%~dp0bin\pdftex.exe --ini --recorder --file-line-error edo.pdf.tex
+@echo ... done.
+@echo. 
+@echo Setup ...
+xcopy /y %~dp0edo.pdf.fmt   %~dp0texmf\tex\edo\edo.pdf.fmt
+@echo write bin\edotex.ps1
 )
 
 >bin\edotex.ps1 (
