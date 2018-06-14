@@ -1,5 +1,5 @@
 #!/bin/sh
-echo "Edo.TeX 2016"
+echo "Edo.TeX 2018"
 TEXINPUTS=$(pwd)/texmf/tex/edo export TEXINPUTS
 TEXFORMAT=$(pwd)/texmf/tex/edo export TEXFORMAT
 ENCFONTS=$(pwd)/texmf/fonts/enc export ENCFONTS
@@ -9,13 +9,13 @@ T1FONTS=$(pwd)/texmf/fonts/type1 export T1FONTS
 
 echo $TFMFONTS
 
-pdftex --ini --recorder --file-line-error edo.pdf.tex
+pdftex --ini --recorder --file-line-error texmf/tex/edo/edo.pdf.tex
 mv -f edo.pdf.fmt ./texmf/tex/edo/
 
 echo "Edo.pdf.tex build" 
 
 cat <<EOF > ./bin/edotex
-echo "Edo.TeX 2016"
+echo "Edo.TeX 2018"
 TEXINPUTS=.:$(pwd)/texmf/tex/edo export TEXINPUTS
 TEXFORMAT=$(pwd)/texmf/tex/edo export TEXFORMAT
 ENCFONTS=$(pwd)/texmf/fonts/enc export ENCFONTS
