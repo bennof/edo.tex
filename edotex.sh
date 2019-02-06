@@ -9,7 +9,7 @@ T1FONTS=$(pwd)/texmf/fonts/type1 export T1FONTS
 
 echo $TFMFONTS
 
-pdftex --ini --recorder --file-line-error texmf/tex/edo/edo.pdf.tex
+pdftex --ini --recorder --file-line-error edo.pdf.tex
 mv -f edo.pdf.fmt ./texmf/tex/edo/
 
 echo "Edo.pdf.tex build" 

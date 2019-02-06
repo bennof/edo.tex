@@ -1,8 +1,8 @@
-echo "Edo.TeX 2016"
-TEXINPUTS=.:/edo.tex/texmf/tex/edo export TEXINPUTS
-TEXFORMAT=/edo.tex/texmf/tex/edo export TEXFORMAT
-ENCFONTS=/edo.tex/texmf/fonts/enc export ENCFONTS
-TFMFONTS=/edo.tex/texmf/fonts/tfm export TFMFONTS
-TEXFONTMAPS=/edo.tex/texmf/fonts/map export TEXFONTMAPS
-T1FONTS=/edo.tex/texmf/fonts/type1 export T1FONTS
-pdftex -fmt /edo.tex/texmf/tex/edo/edo.pdf $@
+echo "Edo.TeX 2018"
+TEXINPUTS=.:/home/bennof/git/edo.tex/texmf/tex/edo export TEXINPUTS
+TEXFORMAT=/home/bennof/git/edo.tex/texmf/tex/edo export TEXFORMAT
+ENCFONTS=/home/bennof/git/edo.tex/texmf/fonts/enc export ENCFONTS
+TFMFONTS=/home/bennof/git/edo.tex/texmf/fonts/tfm export TFMFONTS
+TEXFONTMAPS=/home/bennof/git/edo.tex/texmf/fonts/map export TEXFONTMAPS
+T1FONTS=/home/bennof/git/edo.tex/texmf/fonts/type1 export T1FONTS
+pdftex -fmt /home/bennof/git/edo.tex/texmf/tex/edo/edo.pdf $@
