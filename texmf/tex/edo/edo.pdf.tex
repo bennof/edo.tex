@@ -1370,10 +1370,11 @@
     \vbox{\hbox to \hsize {\bflarge\kern-1mm\useColor{Highlight1}{\@topic}\hss}
     \hbox to \hsize {\kern0mm\@subtopic\hss}}
     \vbox{\noindent\@icon}\hss
-    }\hrule}\hss}}
+    }%\hrule
+}\hss}}
   \def\@evenhead{\vbox to 0pt{\hbox to \hsize{\vbox to 10pt{\noindent\topic: \hfil}}\hrule}}
   \def\@oddfoot{\rmsmall\baselineskip=10pt\hskip-25mm\useColor{Footer}{
-    \vbox to \footlineheight{\kern5mm\hrule\kern5pt
+    \vbox to \footlineheight{\kern5mm%\hrule\kern5pt
     \hbox to \pdfpagewidth{\hfill\@url\kern1cm}
     \hbox to \pdfpagewidth{\hfill\pageid\kern1cm}}\hss}}
   \def\@evenfoot{\url\hfill}
@@ -1391,7 +1392,7 @@
   {#2}\hfill\rmsmall #4}}%\@date}}
         \hss}}  
   \kern1mm
-  \hrule width \hsize 
+  %\hrule width \hsize 
   \kern5mm
   }
 }
@@ -1493,9 +1494,17 @@
 \c@exercise=0
 \pagestyle{Worksheet}
 \advance\c@sheet by 1
+\begingroup
 \makeSheetTitle{\@worksheetName\space\the\c@sheet}{#1}{}{\@nameName:\kern50mm}
 #2
 \newpage
+\@solvelooptrue
+\c@exercise=0
+\makeSheetTitle{\@worksheetName\space\the\c@sheet}{#1}{}{\@solutionName}
+#2
+\newpage
+\@solveloopfalse
+\endgroup
 }
 
 \long\def\newTest#1#2{
