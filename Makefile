@@ -55,7 +55,12 @@ FORCE:
 install:
 	find texmf -type f -exec install -D -m 644 "{}" $(TEXMF_PATH)"{}" \;
 	cat edotex | sed 's#^CDIR.*#CDIR=$(TEXMF_PATH)#' > .tmp
-	install -m 755 .tmp /usr/bin/edotex
+	install -m 755 .tmp /usr/local/bin/edotex
+
+install-osx:
+	cp -r texmf $(TEXMF_PATH)
+	chmod -R 644 $(TEXMF_PATH)texmf
+	find $(TEXMF_PATH)texmf -type d -exec chmod 755 {} \;
+	cat edotex | sed 's#^CDIR.*#CDIR=$(TEXMF_PATH)#' > .tmp
+	install -m 755 .tmp /usr/local/bin/edotex
 	
-
-
