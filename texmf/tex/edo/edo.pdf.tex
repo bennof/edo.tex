@@ -996,6 +996,8 @@
       \upbracefill\crcr\noalign{\kern3\p@}}}}\limits}
 \def\skew#1#2#3{{\muskip\z@#1mu\divide\muskip\z@\tw@ \mkern\muskip\z@
     #2{\mkern-\muskip\z@{#3}\mkern\muskip\z@}\mkern-\muskip\z@}{}}
+\def\est{\widehat{=}}
+
 
 \def\lmoustache{\delimiter"437A340 } % top from (, bottom from )
 \def\rmoustache{\delimiter"537B341 } % top from ), bottom from (
@@ -1379,6 +1381,11 @@
     \hbox to \pdfpagewidth{\hfill\pageid\kern1cm}}\hss}}
   \def\@evenfoot{\url\hfill}
 }
+\pagestyle{Worksheet}
+
+% change subtopic
+\def\setsubtopic#1{\global\def\@subtopic{#1}}
+
 
 
 \def\makeSheetTitle#1#2#3#4{
@@ -1397,6 +1404,12 @@
   }
 }
 
+% info
+\long\def\nosolve#1{\if@solveloop\empty\else#1\fi}
+\long\def\solveonly#1{\if@solveloop#1\fi}
+
+
+% exercise
 \long\def\exercise#1#2{
   \parindent=0pt \parskip=0pt \c@exercisepoints=0 \c@subexercise=0
   \global\advance\c@exercise by 1
@@ -1487,6 +1500,9 @@
 \newpage
 }
 
+\newif\ifprint@solve \print@solvetrue
+\def\nosolution{\print@solvefalse}
+
 \long\def\newWorksheet#1#2{
 \newpage
 \def\@subtopic{#1}
@@ -1498,11 +1514,14 @@
 \makeSheetTitle{\@worksheetName\space\the\c@sheet}{#1}{}{\@nameName:\kern50mm}
 #2
 \newpage
+\ifprint@solve
 \@solvelooptrue
 \c@exercise=0
 \makeSheetTitle{\@worksheetName\space\the\c@sheet}{#1}{}{\@solutionName}
 #2
 \newpage
+\fi
+\print@solvetrue
 \@solveloopfalse
 \endgroup
 }
